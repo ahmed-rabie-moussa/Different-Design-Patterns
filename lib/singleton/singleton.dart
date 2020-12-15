@@ -1,11 +1,13 @@
+//Creational Pattern
+
 import 'package:flutter/material.dart';
 
 class Singleton {
-  static Singleton _instance;
+  static Singleton _instance = Singleton._internal();
 
   Singleton._internal();
 
-  static Singleton getInstance() {
-    return _instance ?? Singleton._internal();
+  factory Singleton() {
+    return _instance;
   }
 }

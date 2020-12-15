@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class ExampleStateBase {
-  String _initialText;
+  final String _initialText =
+      "A new 'ExampleStateByDefinition' instance has been created.";
   String _stateText;
 
   String get currentText => _stateText;
@@ -23,8 +24,6 @@ class ExampleStateByDefinition extends ExampleStateBase {
   // using this way: ExampleStateByDefinition x = ExampleStateByDefinition();
   // and when writing causes a compile time exception.
   ExampleStateByDefinition._internal() {
-    _initialText =
-        "A new 'ExampleStateByDefinition' instance has been created.";
     _stateText = _initialText;
     print(_stateText);
   }
@@ -49,8 +48,6 @@ it returns a value to initialize to the object which i'm trying to implement.
   }
 
   ExampleState._internal() {
-    _initialText =
-        "A new 'ExampleStateByDefinition' instance has been created.";
     _stateText = _initialText;
     print(_stateText);
   }
@@ -61,8 +58,6 @@ it returns a value to initialize to the object which i'm trying to implement.
 * */
 class ExampleStateWithoutSingleton extends ExampleStateBase {
   ExampleStateWithoutSingleton() {
-    _initialText =
-        "A new 'ExampleStateByDefinition' instance has been created.";
     _stateText = _initialText;
     print(_stateText);
   }

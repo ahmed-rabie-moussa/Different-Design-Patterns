@@ -1,7 +1,4 @@
+import 'package:different_design_patterns/adapter/test.dart';
 import 'package:flutter/material.dart';
-import 'singleton/singleton.dart';
-import 'singleton/text_example.dart';
 
-void main() {
-  Test.testSingleton();
-}
+void main() {}

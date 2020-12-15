@@ -1,0 +1,11 @@
+This file describes the problem that this pattern solves here.
+
+Let’s say, in the Flutter application we want to collect our contacts from two different sources.
+Unfortunately, these two sources provide the contacts in two different formats — JSON and XML.
+Also, we want to create a Flutter widget which represents this information in a list.
+However, to make the widget universal, it cannot be tied to a specific data format (JSON or XML),
+so it accepts these contacts as a list of Contact objects and does not know anything about how to
+parse JSON or XML strings to the required data structure. So we have two incompatible interfaces —
+our UI component (widget), which expects a list of Contact objects, and two APIs,
+which return contacts’ information in two different formats. As you could have guessed,
+we will use the Adapter design pattern to solve this problem.
