@@ -1,0 +1,69 @@
+
+//Template Method Pattern (Behavioral Pattern)
+
+/*
+* Define the skeleton of an algorithm in an operation,
+* deferring some steps to sub­classes.
+* Template Method lets subclasses redefine certain steps of an algorithm
+* without changing the algorithm’s structure.
+* */
+
+//One Class is a Template (Skeleton) for the algorithm.
+
+* بستخدمه عشان عندي خطوات منظمه بمشى عليها بتوصلني لحل معين
+* بالظبط ده تعريف الـ algorithm
+* يبقي الباترن ده انا بستخدمه عشان أعمل template لل algorithm اللي انا همشي عليه
+
+المشكلة اللي أنا هحلها في الابليكيشن ده هو اني هبدأ أحل بعض مشاكل بنفس الخطوات :
+فبالتالي الخطوات دي هي الـ template اللي انا هعمله عشان دائما احل بيه المشكلات
+يعني مثلا لو انا بقرأ داتا من النت و بعمل parse للداتا دي و بعرضها في الـ console بتاعي
+هي هي نفس الخطوات لو أنا هقرأ الداتا من الـ local disk و هعملها process وبعدين هبعت الناتج في إيميل
+
+The same Algorithm:
+operation1:  Reading the data from some kind of data source;
+operation2:  Processing it;
+operation3:  Providing the calculated results.
+
+يبقي لازم أعرف للـ Algorithm ده skeleton عشان دائما أمشي عليه
+ولما أحتاج أعمل حاجه مشابهه اعمل implement للـ skeleton ده وانفذ الخطوات
+
+بس كده تقريبا وصلتلك كل المعلومات
+
+بس هنا هتقابلني مشكلة وهي ان الـ operations دي انواع مش شكل بعضهم يعني
+مش هروح مثلا اعمل interface وهحط جواها تلاته ميثود و اسميهم و اقول اي حد هيعمل التاسك ده هيعمل implement للتلاته ميثود دول بالكود
+القصة مش في العدد بس القصة كمان في نوع الـ operation اللي أنا عاوز انفذها
+------------------------------------
+different kinds of operations:
+
+1- Primitive operations:
+هو نوع من العمليات انا مش محتاج اغيره فبكتب الكود مره واحده
+و لو احتاجت اعدله أقوم هعدله في الـ subclass
+can be redefined by subclasses if necessary
+وبالتالي هحتاج يبقي الكلاس بتاعي abstract عشان اعمل العملية الثابتة دي
+
+2- Final operations: (with body)
+عملية ثابتة عمرها ما هتتعدل بتتم دائما في الألجوريزم بتاعي
+can not be overridden by subclasses
+هنا محتاج ان الميثود دي ميحصلها ابدا override في الـ subclass
+
+3- Hook operations:
+عملية بحطلها حاجه افتراضية بس انا عارف انها دائما مختلفة في كل subclass
+وهحتاج أعدلها هناك أو ماخدهاش من الاصل
+
+4- Template method itself can be declared as final
+so that it could not be overridden by subclasses.
+
+-------------------------------------------------------
+ the pattern is useful when we want to extract the common logic among classes
+ to avoid the code duplication (DRY principle — Don’t Repeat Yourself).
+-------------------------------------------------------
+
+البرنامج اللي بنطبق عليه المشكلة هو برنامج بيحسب الـ BMI
+و الألجوريزم المستخدم لاتمام العملية هو
+Algorithm:
+1- retrieving students’ data.
+2- apply students filtering (if necessary). خد بالك انا خطوة مش مهمه أوي --
+3- calculate their BMI & provides the results.
+وهنطبق نفس الالجوريزم في اننا نجيب الداتا من مكان تاني و هنعمل فلتر مختلف بحيث انه يتنفذ
+علي الـتلاميذ فوق ال10 سنين فقط
+
